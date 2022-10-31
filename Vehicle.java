@@ -3,7 +3,7 @@
 *
 * @author  Aidan Lalonde-Novales
 * @version 1.0
-* @since   2022-10-23
+* @since   2022-10-30
 */
 
 /**
@@ -17,9 +17,9 @@ public class Vehicle {
     private int speed;
 
     /**
-     * Declare the license plate number.
+     * Declare the max vehicle speed.
      */
-    private String licensePlate;
+    private int maxSpeed;
 
     /**
      * Declare vehicle color.
@@ -27,63 +27,16 @@ public class Vehicle {
     private String color;
 
     /**
-     * Declare the amount of doors.
-     */
-    private int doorCount;
-
-    /**
-     * Declare the max vehicle speed.
-     */
-    private int maxSpeed;
-
-    /**
      * Vehicle Constructor - allows main to implement values for variables.
      *
-     * @param licensePlate - license plate number
-     * @param color - color of the car
-     * @param doorCount - number of doors
-     * @param maxSpeed - maximum speed achievable
+     * @param maxSpeed - max speed achievable.
+     * @param color - color of the vehicle.
      */
     public Vehicle(
-        String licensePlate,
-        String color,
-        int doorCount,
-        int maxSpeed) {
-        this.licensePlate = licensePlate;
-        this.color = color;
-        this.doorCount = doorCount;
+        int maxSpeed,
+        String color) {
         this.maxSpeed = maxSpeed;
-    }
-
-    /**
-     * Status() method - prints all current values.
-     */
-    public void status() {
-        System.out.println("");
-        System.out.println("    -> Speed: " + this.speed);
-        System.out.println("    -> Max Speed: " + this.maxSpeed);
-        System.out.println("    -> Number of Doors: " + this.doorCount);
-        System.out.println("    -> License Plate: " + this.licensePlate);
-        System.out.println("    -> Color: " + this.color);
-        System.out.println("");
-    }
-
-    /**
-     * GetLicensePlate() method - returns the current licensePlate value.
-     *
-     * @return licensePlate
-     */
-    public String getLicensePlate() {
-        return this.licensePlate;
-    }
-
-    /**
-     * SetLicensePlate() method - changes the license plate value.
-     *
-     * @param licensePlateInput - input from Main to replace licensePlate
-     */
-    public void setLicensePlate(String licensePlateInput) {
-        this.licensePlate = licensePlateInput;
+        this.color = color;
     }
 
     /**
@@ -105,12 +58,21 @@ public class Vehicle {
     }
 
     /**
-     * GetDoorCount() method - returns the current doorCount value.
+     * GetSpeed() method - returns the current speed value.
      *
-     * @return doorCount
+     * @return speed
      */
-    public int getDoorCount() {
-        return this.doorCount;
+    public int getSpeed() {
+        return this.speed;
+    }
+
+    /**
+     * SetSpeed() method - changes the speed value.
+     *
+     * @param speedInput - input to replace speed
+     */
+    public void setSpeed(int speedInput) {
+        this.speed = speedInput;
     }
 
     /**
@@ -120,15 +82,6 @@ public class Vehicle {
      */
     public int getMaxSpeed() {
         return this.maxSpeed;
-    }
-
-    /**
-     * GetSpeed() method - returns the current speed value.
-     *
-     * @return speed
-     */
-    public int getSpeed() {
-        return this.speed;
     }
 
     /**
@@ -145,12 +98,12 @@ public class Vehicle {
     }
 
     /**
-     * Breaking() method - decreases the speed of the vehicle.
+     * Braking() method - decreases the speed of the vehicle.
      *
      * @param breakPower - power of the break
      * @param breakTime - time to break for
      */
-    public void breaking(int breakPower, int breakTime) {
+    public void braking(int breakPower, int breakTime) {
         this.speed -= breakPower * breakTime;
         if (!(this.speed >= 0)) {
             this.speed = 0;
